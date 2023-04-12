@@ -81,7 +81,11 @@ export function usePokemon() {
     handleTypeSelect,
     selectedType,
     pokemonByTypes: getPokemonTypeQuery?.data,
-    loading: pokemonQuery?.isLoading || pokemonQuery?.isFetching,
+    loading:
+      pokemonQuery?.isLoading ||
+      pokemonQuery?.isFetching ||
+      getPokemonTypeQuery?.isLoading ||
+      getPokemonTypeQuery?.isFetching,
     pokemons: selectedType ? getPokemonTypeQuery?.data : pokemonQuery?.data,
     error: getPokemonTypeQuery?.error || pokemonQuery?.error,
   };
