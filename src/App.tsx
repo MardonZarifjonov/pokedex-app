@@ -1,7 +1,11 @@
+import { Home, ViewPokemon } from 'pages';
+import { Route, Routes } from 'react-router-dom';
+
 export default function App() {
   return (
-    <div>
-      <h1 className="text-3xl">Hello</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/pokemon/:name" element={<ViewPokemon />} />
+    </Routes>
   );
 }
