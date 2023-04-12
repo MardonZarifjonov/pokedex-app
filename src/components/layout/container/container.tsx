@@ -11,7 +11,7 @@ export function Container({ children, className }: ContainerProps) {
 
   return (
     <div className={classNames}>
-      <h1 className="text-5xl self-center">Pokodex</h1>
+      <h1 className="text-5xl self-center">Pokedex</h1>
       {children}
     </div>
   );
