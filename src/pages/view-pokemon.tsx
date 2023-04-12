@@ -14,7 +14,7 @@ export function ViewPokemon() {
   return (
     <Container className="items-start justify-start">
       <Button
-        onClick={() => navigation('/')}
+        onClick={() => navigation(-1)}
         size="large"
         style={{ width: '100px', display: 'grid', placeItems: 'center' }}
       >

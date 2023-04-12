@@ -1,4 +1,4 @@
-import { Button, Input, Pagination, Select, Spin } from 'antd';
+import { Button, Input, Pagination, Select, Spin, Typography } from 'antd';
 import Container from 'components/layout/container';
 import Spinner from 'components/spinner';
 import { usePokemon } from 'hooks';
@@ -9,6 +9,7 @@ export function Home() {
     page,
     total,
     types,
+    error,
     loading,
     pokemons,
     selectedType,
@@ -18,6 +19,19 @@ export function Home() {
     handlePokemonSearch,
   } = usePokemon();
   const navigate = useNavigate();
+
+  if (error) {
+    return (
+      <Container className="items-center">
+        <Typography.Title level={3} type="secondary">
+          Something went wrong :/
+        </Typography.Title>
+        <Button size="small" href="/">
+          Go back to home page
+        </Button>
+      </Container>
+    );
+  }
 
   return (
     <Container className="items-center">

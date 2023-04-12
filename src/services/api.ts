@@ -4,7 +4,7 @@ const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL,
 });
 
-const baseQueryWithRetry = retry(baseQuery, { maxRetries: 5 });
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
 
 export const baseApi = createApi({
   baseQuery: baseQueryWithRetry,

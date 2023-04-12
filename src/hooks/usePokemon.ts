@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { pokemonApi } from 'services';
 import { InputProps } from 'antd';
 import { useDebounceValue } from './useDebounceValue';
 
 export function usePokemon() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState(
     parseInt(searchParams.get('limit') || '10', 10)
@@ -82,5 +83,6 @@ export function usePokemon() {
     pokemonByTypes: getPokemonTypeQuery?.data,
     loading: pokemonQuery?.isLoading || pokemonQuery?.isFetching,
     pokemons: selectedType ? getPokemonTypeQuery?.data : pokemonQuery?.data,
+    error: getPokemonTypeQuery?.error || pokemonQuery?.error,
   };
 }
